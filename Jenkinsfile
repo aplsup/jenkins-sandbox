@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo 'Hello World'
                 echo "Building ${env}"
                 script {
                     def browsers = ['chrome', 'firefox']
