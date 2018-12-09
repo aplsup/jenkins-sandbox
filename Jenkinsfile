@@ -1,9 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Build') {
             steps {
-                sh 'mvn install -DskipTests'
+                maven {
+                    goals('clean')
+                    goals('install')
+                    localRepository(LocalRepositoryLocation.LOCAL_TO_WORKSPACE)
+                    properties(skipTests: true)
+                    mavenInstallation('Maven 3.1.1')
+                    providedSettings('central-mirror')
+                }
             }
         }
 
