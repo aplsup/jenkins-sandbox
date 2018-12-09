@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                maven('clean')
-                maven('install')
+                step {
+                    maven('clean')
+                    maven('install')
+                }
             }
         }
 
