@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                maven 'clean install -DskipTests'
+                sh 'mvn install -DskipTests'
             }
         }
 
